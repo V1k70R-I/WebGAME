@@ -1,0 +1,54 @@
+html, body {
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
+body {
+  background: url(../img/Background_main.jpg);
+  background-size: cover;
+}
+
+.text-center{
+  text-align: center;
+}
+
+header h1 {
+  background: rgba(255, 255, 255, 0.5);
+  padding: 10px 0;
+}
+
+.main {
+  display: flex;
+}
+
+.block {
+  flex: 1 1 auto;
+}
+
+#awesome {
+  list-style: none;
+  counter-reset: my-awesome-counter;
+}
+#awesome > li {
+  counter-increment: my-awesome-counter;
+  margin: 0.25rem;
+}
+#awesome > li::before {
+  content: counter(my-awesome-counter);
+  background: #ad7449;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  display: inline-block;
+  line-height: 2rem;
+  color: white;
+  text-align: center;
+  margin-right: 0.5rem;
+}
+
+.text-field {
+  background: rgba(255, 255, 255, 0.5);
+  padding: 20px;
+  margin: 20px 0;
+}
+
