@@ -8,12 +8,17 @@ body {
   background-size: cover;
 }
 
+.container{
+  max-width: 1240px;
+  margin: 0 auto; 
+}
+
 .text-center{
   text-align: center;
 }
 
 header h1 {
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.7);
   padding: 10px 0;
 }
 
@@ -25,7 +30,15 @@ header h1 {
   flex: 1 1 auto;
 }
 
+.tetris-wrap {
+  margin: 20px auto;
+  width: 300px;
+  height: 500px;
+  background: rgba(255, 255, 255, 0.7);
+}
+
 #awesome {
+  margin-top: 30px;
   list-style: none;
   counter-reset: my-awesome-counter;
 }
@@ -47,8 +60,28 @@ header h1 {
 }
 
 .text-field {
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.7);
   padding: 20px;
   margin: 20px 0;
+}
+
+.default-button {
+  margin-left: 20%;
+  background-color: #ad7449;
+  background-image: url(../img/btn_background_main.png);
+  background-repeat: no-repeat;
+  background-position: 95% 50%;
+  display: block;
+  width: 25%;
+  padding: 20px;
+  border-radius: 20px;
+  border: 2px solid;
+  color: #fff;
+  
+}
+
+.score-field {
+  margin-top: 30px;
+  font-size: 42px;
 }
 
