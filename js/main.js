@@ -23,21 +23,56 @@ window.onload = () => {
   let score = 0;
 
   function draw() {
+    // Реализация с помощью if else
+
+    // let out = "";
+    // for (let i = 0; i < tetris.length; i++) {
+    //   for (let j = 0; j < tetris[i].length; j++) {
+    //     if (tetris[i][j] == 0) {
+    //       out += '<div class="circle white"></div>';
+    //     } else if (tetris[i][j] == 1 || tetris[i][j] == 11) {
+    //       out += '<div class="circle red"></div>';
+    //     } else if (tetris[i][j] == 2 || tetris[i][j] == 12) {
+    //       out += '<div class="circle gold"></div>';
+    //     } else if (tetris[i][j] == 3 || tetris[i][j] == 13) {
+    //       out += '<div class="circle green"></div>';
+    //     } else if (tetris[i][j] == 4 || tetris[i][j] == 14) {
+    //       out += '<div class="circle blue"></div>';
+    //     } else if (tetris[i][j] == 5 || tetris[i][j] == 15) { 
+    //       out += '<div class="circle pink"></div>';
+    //     }
+    //   }
+    // }
+
+    // Реализация с помощью switch case
+
     let out = "";
     for (let i = 0; i < tetris.length; i++) {
       for (let j = 0; j < tetris[i].length; j++) {
-        if (tetris[i][j] == 0) {
-          out += '<div class="circle white"></div>';
-        } else if (tetris[i][j] == 1 || tetris[i][j] == 11) {
-          out += '<div class="circle red"></div>';
-        } else if (tetris[i][j] == 2 || tetris[i][j] == 12) {
-          out += '<div class="circle gold"></div>';
-        } else if (tetris[i][j] == 3 || tetris[i][j] == 13) {
-          out += '<div class="circle green"></div>';
-        } else if (tetris[i][j] == 4 || tetris[i][j] == 14) {
-          out += '<div class="circle blue"></div>';
-        } else if (tetris[i][j] == 5 || tetris[i][j] == 15) {
-          out += '<div class="circle pink"></div>';
+        switch (tetris[i][j]) {
+          case 0:
+            out += '<div class="circle white"></div>';
+            break;
+          case 1:
+          case 11:  
+            out += '<div class="circle red"></div>';
+            break;
+          case 2:
+          case 12:
+            out += '<div class="circle gold"></div>';
+            break;
+          case 3:
+          case 13:  
+            out += '<div class="circle green"></div>';
+            break;
+          case 4:
+          case 14:  
+            out += '<div class="circle blue"></div>';
+            break;
+          case 5:
+          case 15:  
+            out += '<div class="circle pink"></div>';
+            break;
         }
       }
     }
