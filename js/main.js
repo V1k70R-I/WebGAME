@@ -38,7 +38,7 @@ window.onload = () => {
     //       out += '<div class="circle green"></div>';
     //     } else if (tetris[i][j] == 4 || tetris[i][j] == 14) {
     //       out += '<div class="circle blue"></div>';
-    //     } else if (tetris[i][j] == 5 || tetris[i][j] == 15) { 
+    //     } else if (tetris[i][j] == 5 || tetris[i][j] == 15) {
     //       out += '<div class="circle pink"></div>';
     //     }
     //   }
@@ -54,7 +54,7 @@ window.onload = () => {
             out += '<div class="circle white"></div>';
             break;
           case 1:
-          case 11:  
+          case 11:
             out += '<div class="circle red"></div>';
             break;
           case 2:
@@ -62,15 +62,15 @@ window.onload = () => {
             out += '<div class="circle gold"></div>';
             break;
           case 3:
-          case 13:  
+          case 13:
             out += '<div class="circle green"></div>';
             break;
           case 4:
-          case 14:  
+          case 14:
             out += '<div class="circle blue"></div>';
             break;
           case 5:
-          case 15:  
+          case 15:
             out += '<div class="circle pink"></div>';
             break;
         }
@@ -96,26 +96,58 @@ window.onload = () => {
   let flag; // Проверка когда запускать следующий элемент
 
   function start() {
-    draw();
-    flag = true;
-    for (let i = tetris.length - 1; i >= 0; i--) {
-      for (let j = 0; j < tetris[i].length; j++) {
-        if (tetris[i][j] < 9) {
-          if (tetris[i][j] != 0) {
-            if (i == tetris.length - 1) {
-              tetris[i][j] = tetris[i][j] + 10;
-            } else if (tetris[i + 1][j] == 0) {
-              tetris[i + 1][j] = tetris[i][j];
-              tetris[i][j] = 0;
-              flag = false;
+    timer = setTimeout(() => {
+      draw();
+      flag = true;
+      for (let i = tetris.length - 1; i >= 0; i--) {
+        for (let j = 0; j < tetris[i].length; j++) {
+          if (tetris[i][j] < 9) {
+            if (tetris[i][j] != 0) {
+              if (i == tetris.length - 1) {
+                tetris[i][j] = tetris[i][j] + 10;
+              } else if (tetris[i + 1][j] == 0) {
+                tetris[i + 1][j] = tetris[i][j];
+                tetris[i][j] = 0;
+                flag = false;
+              }
             }
           }
         }
       }
+      if (flag) {
+        circle();
+      }
+    }, 200);
+  }
+
+  // Функции для сдвига элемента по нажатию на клавишу
+
+  function tetrisRight() {
+    for (let i = tetris.length - 1; i >= 0; i--) {
+      for (let j = tetris[i].length - 1; j >= 0; j--) {
+        if (tetris[i][j] < 10) {
+          if (tetris[i][j] != 0 && tetris[i][j + 1] === 0) {
+            tetris[i][j + 1] = tetris[i][j];
+            tetris[i][j] = 0;
+          }
+        }
+      }
     }
-    if (flag) {
-      circle();
+    draw();
+  }
+
+  function tetrisRight() {
+    for (let i = tetris.length - 1; i >= 0; i--) {
+      for (let j = 0; j < tetris[i].length; j++) {
+        if (tetris[i][j] < 10) {
+          if (tetris[i][j] != 0 && tetris[i][j - 1] === 0) {
+            tetris[i][j - 1] = tetris[i][j];
+            tetris[i][j] = 0;
+          }
+        }
+      }
     }
+    draw();
   }
 
   // Запускаем
@@ -124,4 +156,15 @@ window.onload = () => {
   draw();
   circle();
   buttonRun.onclick = start;
+  document.onkeydown = function (event) {
+    switch (evnt.code) {
+      case "ArrowRight":
+        tetrisRight();
+        break;
+      case "ArrowLeft":
+        tetrisLeft();
+        break;
+    }
+    return false;
+  };
 };
